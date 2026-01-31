@@ -4,20 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Novis Concept</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-*{
+* {
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Montserrat', sans-serif;
 }
 
-body{
+body {
   background:#fff;
   color:#222;
+  overflow-x:hidden;
 }
 
 /* HEADER */
@@ -31,14 +30,12 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:15px 30px;
+  padding:12px 30px;
   z-index:1000;
 }
 
 header img{
-  height:70px;
-  width:auto;
-  object-fit:contain;
+  height:70px; /* logo mai mare */
 }
 
 .brand{
@@ -52,7 +49,7 @@ header img{
 }
 
 .brand span{
-  font-size:0.9rem;
+  font-size:0.85rem;
 }
 
 nav ul{
@@ -65,18 +62,15 @@ nav a{
   color:#fff;
   text-decoration:none;
   font-weight:500;
-  transition: color 0.3s, text-decoration 0.3s;
+  transition: color 0.3s;
 }
 
 nav a.active{
-  color:#ffcc00;
   text-decoration:underline;
 }
 
 /* FOOTER */
 footer{
-  position:fixed;
-  bottom:0;
   width:100%;
   height:34px;
   background:#0d2b5f;
@@ -85,43 +79,85 @@ footer{
   align-items:center;
   justify-content:center;
   font-size:0.85rem;
+  position:relative;
 }
 
 /* MAIN */
 main{
   padding-top:110px;
-  padding-bottom:34px;
 }
 
 /* SECTIONS */
 section{
   display:none;
   min-height:calc(100vh - 144px);
-  padding:30px 20px;
+  padding:60px 20px 20px 20px;
   text-align:center;
-  opacity:0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.6s;
 }
 
 section.active{
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   opacity:1;
 }
 
-/* TITLES */
-h2{
+/* ACASA */
+#acasa{
+  background:url('fundal-acasa.png') no-repeat center center/cover;
   color:#fff;
-  font-size:2.5rem;
-  margin-bottom:20px;
-  text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+  position:relative;
 }
 
-/* BUTTON */
-.button{
+#acasa .overlay{
+  background:rgba(0,0,0,0.45);
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+#acasa-content{
+  position:relative;
+  z-index:1;
+  max-width:1000px;
+  text-align:center;
+}
+
+#acasa h2{
+  font-size:2.2rem;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.9);
+  color:#0d2b5f;
+  padding:18px;
+  border-radius:12px;
+  font-weight:500;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+}
+
+#acasa p{
   margin-top:30px;
+  font-style:italic;
+  font-size:1rem;
+}
+
+#acasa .button{
+  margin-top:40px;
   padding:14px 32px;
   border-radius:30px;
   border:none;
@@ -129,95 +165,73 @@ h2{
   color:#0d2b5f;
   font-weight:700;
   cursor:pointer;
-  transition: transform 0.3s;
-}
-
-.button:hover{
-  transform:scale(1.05);
-}
-
-/* DE CE NOI - FIRST PAGE */
-#acasa{
-  background: url('fundal-acasa.png') center/cover no-repeat;
-  color:#fff;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-  gap:20px;
-  max-width:900px;
-  margin-top:20px;
-}
-
-.card{
-  background:rgba(255,255,255,0.85);
-  color:#0d2b5f;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* DESPRE NOI */
 #despre{
-  background:#f5f5f5;
   color:#0d2b5f;
-  padding:50px 20px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  max-width:900px;
+}
+
+#despre h2{
+  font-size:2rem;
+  margin-bottom:20px;
 }
 
 #despre p{
-  max-width:900px;
-  margin:15px 0;
+  margin-bottom:15px;
   line-height:1.6;
+  text-align:left;
 }
 
 /* SERVICII */
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-  max-width:1100px;
+#servicii{
+  color:#0d2b5f;
+  max-width:900px;
 }
 
-.service-card{
-  background:#fff;
-  padding:20px 15px;
-  border-radius:16px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+#servicii h2{
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+#servicii .service-card{
+  background:#f5f5f5;
+  padding:18px;
+  border-radius:12px;
+  margin-bottom:12px;
   font-weight:500;
 }
 
 /* CONTACT */
 #contact{
-  background:#f5f5f5;
-  padding:50px 20px;
-  text-align:center;
+  color:#0d2b5f;
+  max-width:900px;
+}
+
+#contact h2{
+  font-size:2rem;
+  margin-bottom:20px;
 }
 
 #contact p{
-  max-width:700px;
   margin-bottom:20px;
   line-height:1.6;
+  text-align:left;
 }
 
 form{
   display:flex;
   flex-direction:column;
   gap:14px;
-  max-width:420px;
   width:100%;
-  margin:0 auto;
 }
 
 input, textarea{
   padding:12px;
   border-radius:8px;
   border:1px solid #ccc;
+  width:100%;
 }
 
 form button{
@@ -232,8 +246,9 @@ form button{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .services-grid{
-    grid-template-columns:repeat(2,1fr);
+  nav ul{
+    flex-direction:column;
+    gap:10px;
   }
   .cards{
     grid-template-columns:1fr;
@@ -245,17 +260,9 @@ form button{
     flex-direction:column;
     gap:10px;
   }
-  nav ul{
-    flex-direction:column;
-    gap:10px;
-  }
-  header img{
-    height:50px;
-  }
 }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -266,31 +273,33 @@ form button{
   </div>
   <nav>
     <ul>
-      <li><a id="link-acasa" onclick="showSection('acasa')">Acasă</a></li>
-      <li><a id="link-despre" onclick="showSection('despre')">Despre</a></li>
-      <li><a id="link-servicii" onclick="showSection('servicii')">Servicii</a></li>
-      <li><a id="link-contact" onclick="showSection('contact')">Contact</a></li>
+      <li><a onclick="showSection('acasa')" id="link-acasa">Acasă</a></li>
+      <li><a onclick="showSection('despre')" id="link-despre">Despre Noi</a></li>
+      <li><a onclick="showSection('servicii')" id="link-servicii">Servicii</a></li>
+      <li><a onclick="showSection('contact')" id="link-contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-
 <section id="acasa" class="active">
-  <h2>De ce noi?</h2>
-  <div class="cards">
-    <div class="card">Profesionalism și atenție la detalii</div>
-    <div class="card">Servicii personalizate</div>
-    <div class="card">Rapiditate și eficiență</div>
-    <div class="card">Produse eco-friendly</div>
-    <div class="card">Suport constant</div>
+  <div class="overlay"></div>
+  <div id="acasa-content">
+    <h2>De ce noi?</h2>
+    <div class="cards">
+      <div class="card">Profesionalism și atenție la detalii</div>
+      <div class="card">Servicii personalizate</div>
+      <div class="card">Rapiditate și eficiență</div>
+      <div class="card">Produse eco-friendly</div>
+      <div class="card">Suport constant</div>
+    </div>
+    <p>Novis Concept – Alături de tine, la fiecare pas.</p>
+    <button class="button" onclick="showSection('contact')">Programează evaluare</button>
   </div>
-  <p style="margin-top:25px;font-style:italic;">Novis Concept – Alături de tine, la fiecare pas.</p>
-  <button class="button" onclick="showSection('contact')">Programează evaluare</button>
 </section>
 
 <section id="despre">
-  <h2>Despre noi</h2>
+  <h2>Despre Noi</h2>
   <p>La Novis Concept, oferim soluții profesionale de curățenie și întreținere, adaptate nevoilor companiilor și locuințelor. Ne ocupăm de birouri și spații comerciale, spații industriale, curățenie post-construcții, spălări mecanizate de pardoseli, mochete și tapițerii, precum și de curățarea suprafețelor vitrate, inclusiv prin alpinism utilitar.</p>
   <p>Oferim, de asemenea, servicii complete pentru locuințe, transformând casa fiecărui client într-un spațiu curat, confortabil și primitor. Ne ocupăm și de întreținerea spațiilor verzi și lucrări de peisagistică, precum și de servicii de deszăpezire, pentru a asigura un mediu sigur și bine întreținut în orice sezon.</p>
   <p>Suntem dedicați construirii de relații bazate pe încredere și profesionalism, oferind mereu soluții personalizate care răspund exact nevoilor fiecărui client.</p>
@@ -298,20 +307,18 @@ form button{
 
 <section id="servicii">
   <h2>Servicii</h2>
-  <div class="services-grid">
-    <div class="service-card">Curățenie Birouri</div>
-    <div class="service-card">Spații Comerciale</div>
-    <div class="service-card">Post-Construcții</div>
-    <div class="service-card">Depozite</div>
-    <div class="service-card">La Domiciliu</div>
-    <div class="service-card">Pardoseli</div>
-    <div class="service-card">Mochete</div>
-    <div class="service-card">Tapițerii</div>
-    <div class="service-card">Alpinism Utilitar</div>
-    <div class="service-card">Spații Verzi</div>
-    <div class="service-card">Peisagistică</div>
-    <div class="service-card">Deszăpezire</div>
-  </div>
+  <div class="service-card">Curățenie Birouri</div>
+  <div class="service-card">Spații Comerciale</div>
+  <div class="service-card">Post-Construcții</div>
+  <div class="service-card">Depozite</div>
+  <div class="service-card">La Domiciliu</div>
+  <div class="service-card">Pardoseli</div>
+  <div class="service-card">Mochete</div>
+  <div class="service-card">Tapițerii</div>
+  <div class="service-card">Alpinism Utilitar</div>
+  <div class="service-card">Spații Verzi</div>
+  <div class="service-card">Peisagistică</div>
+  <div class="service-card">Deszăpezire</div>
 </section>
 
 <section id="contact">
@@ -331,7 +338,6 @@ form button{
 </section>
 
 </main>
-
 <footer>© 2026 Novis Concept</footer>
 
 <script>
@@ -339,14 +345,12 @@ function showSection(id){
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 
-  // highlight meniu activ
+  // actualizare nav
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('link-' + id).classList.add('active');
-
-  window.scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('link-'+id).classList.add('active');
+  window.scrollTo(0,0);
 }
 </script>
-
 </body>
 </html>
 
