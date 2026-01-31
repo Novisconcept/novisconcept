@@ -31,12 +31,14 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 30px;
+  padding:15px 30px;
   z-index:1000;
 }
 
 header img{
-  height:60px; /* Logo mai mare */
+  height:70px;
+  width:auto;
+  object-fit:contain;
 }
 
 .brand{
@@ -45,12 +47,12 @@ header img{
 }
 
 .brand h1{
-  font-size:1.6rem;
+  font-size:1.8rem;
   font-weight:700;
 }
 
 .brand span{
-  font-size:0.85rem;
+  font-size:0.9rem;
 }
 
 nav ul{
@@ -63,17 +65,12 @@ nav a{
   color:#fff;
   text-decoration:none;
   font-weight:500;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding-bottom:2px;
+  transition: color 0.3s, text-decoration 0.3s;
 }
 
-nav a:hover{
+nav a.active{
   color:#ffcc00;
-}
-
-nav a.active-link{
-  color:#ffcc00;
-  border-bottom:2px solid #ffcc00;
+  text-decoration:underline;
 }
 
 /* FOOTER */
@@ -103,7 +100,7 @@ section{
   padding:30px 20px;
   text-align:center;
   opacity:0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.6s ease;
 }
 
 section.active{
@@ -114,36 +111,12 @@ section.active{
   opacity:1;
 }
 
-/* FUNDAL ACASA */
-#acasa{
-  background: url('fundal-acasa.png') center/cover no-repeat;
-  color:#fff;
-}
-
-/* CARDURI DE CE NOI */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-  gap:20px;
-  max-width:1000px;
-  margin-top:20px;
-}
-
-.card{
-  background: rgba(255,255,255,0.9);
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
-  color:#0d2b5f;
-  font-weight:500;
-  text-align:left;
-}
-
 /* TITLES */
 h2{
-  color:#0d2b5f;
-  font-size:2rem;
-  margin-bottom:25px;
+  color:#fff;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  text-shadow:2px 2px 8px rgba(0,0,0,0.6);
 }
 
 /* BUTTON */
@@ -156,32 +129,89 @@ h2{
   color:#0d2b5f;
   font-weight:700;
   cursor:pointer;
+  transition: transform 0.3s;
+}
+
+.button:hover{
+  transform:scale(1.05);
+}
+
+/* DE CE NOI - FIRST PAGE */
+#acasa{
+  background: url('fundal-acasa.png') center/cover no-repeat;
+  color:#fff;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:20px;
+  max-width:900px;
+  margin-top:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.85);
+  color:#0d2b5f;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* DESPRE NOI */
+#despre{
+  background:#f5f5f5;
+  color:#0d2b5f;
+  padding:50px 20px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+#despre p{
+  max-width:900px;
+  margin:15px 0;
+  line-height:1.6;
 }
 
 /* SERVICII */
 .services-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:20px;
   max-width:1100px;
 }
 
 .service-card{
   background:#fff;
-  padding:22px 15px;
+  padding:20px 15px;
   border-radius:16px;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
   font-weight:500;
 }
 
 /* CONTACT */
+#contact{
+  background:#f5f5f5;
+  padding:50px 20px;
+  text-align:center;
+}
+
+#contact p{
+  max-width:700px;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
 form{
   display:flex;
   flex-direction:column;
   gap:14px;
   max-width:420px;
   width:100%;
-  margin-top:20px;
+  margin:0 auto;
 }
 
 input, textarea{
@@ -197,6 +227,7 @@ form button{
   padding:14px;
   border-radius:30px;
   font-weight:700;
+  cursor:pointer;
 }
 
 /* RESPONSIVE */
@@ -218,8 +249,8 @@ form button{
     flex-direction:column;
     gap:10px;
   }
-  .services-grid{
-    grid-template-columns:1fr;
+  header img{
+    height:50px;
   }
 }
 </style>
@@ -235,10 +266,10 @@ form button{
   </div>
   <nav>
     <ul>
-      <li><a onclick="showSection('acasa')">Acasă</a></li>
-      <li><a onclick="showSection('despre')">Despre</a></li>
-      <li><a onclick="showSection('servicii')">Servicii</a></li>
-      <li><a onclick="showSection('contact')">Contact</a></li>
+      <li><a id="link-acasa" onclick="showSection('acasa')">Acasă</a></li>
+      <li><a id="link-despre" onclick="showSection('despre')">Despre</a></li>
+      <li><a id="link-servicii" onclick="showSection('servicii')">Servicii</a></li>
+      <li><a id="link-contact" onclick="showSection('contact')">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -248,18 +279,13 @@ form button{
 <section id="acasa" class="active">
   <h2>De ce noi?</h2>
   <div class="cards">
-    <div class="card">
-      La Novis Concept, suntem mai mult decât o echipă de curățenie – suntem profesioniști care țin la oameni, spațiile lor și mediul înconjurător. Ne mândrim cu:
-      <ul>
-        <li>Profesionalism desăvârșit</li>
-        <li>Prezență constantă și suport pentru clienți</li>
-        <li>Servicii personalizate</li>
-        <li>Grijă pentru oameni și mediu</li>
-        <li>Rapiditate și eficiență</li>
-      </ul>
-      Novis Concept – Alături de tine, la fiecare pas.
-    </div>
+    <div class="card">Profesionalism și atenție la detalii</div>
+    <div class="card">Servicii personalizate</div>
+    <div class="card">Rapiditate și eficiență</div>
+    <div class="card">Produse eco-friendly</div>
+    <div class="card">Suport constant</div>
   </div>
+  <p style="margin-top:25px;font-style:italic;">Novis Concept – Alături de tine, la fiecare pas.</p>
   <button class="button" onclick="showSection('contact')">Programează evaluare</button>
 </section>
 
@@ -310,31 +336,14 @@ form button{
 
 <script>
 function showSection(id){
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 
-  sections.forEach(s => {
-    if(s.classList.contains('active')){
-      s.style.opacity = 1;
-      s.style.transition = 'opacity 0.5s';
-      s.style.opacity = 0;
-      setTimeout(() => s.classList.remove('active'), 500);
-    }
-  });
+  // highlight meniu activ
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('link-' + id).classList.add('active');
 
-  const newSection = document.getElementById(id);
-  setTimeout(() => {
-    newSection.classList.add('active');
-    newSection.style.opacity = 0;
-    newSection.style.transition = 'opacity 0.5s';
-    setTimeout(() => newSection.style.opacity = 1, 50);
-  }, 500);
-
-  navLinks.forEach(link => link.classList.remove('active-link'));
-  const activeLink = Array.from(navLinks).find(link => link.getAttribute('onclick') === `showSection('${id}')`);
-  if(activeLink) activeLink.classList.add('active-link');
-
-  window.scrollTo(0,0);
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
 
