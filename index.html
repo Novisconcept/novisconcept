@@ -15,10 +15,7 @@
 
 /* BODY */
 body {
-  background: #fff;
-  color: #222;
-  overflow: hidden; /* Fara scroll */
-  height: 100vh;
+  overflow: hidden;
 }
 
 /* HEADER */
@@ -34,17 +31,19 @@ header {
   justify-content: space-between;
   padding: 12px 30px;
   z-index: 1000;
-  height: 90px;
+  height: 70px;
+  flex-wrap: wrap;
 }
 
 header img {
-  height: 70px;
+  height: 65px;
   cursor: pointer;
 }
 
 .brand {
   text-align: center;
   cursor: pointer;
+  flex: 1;
 }
 
 .brand h1 {
@@ -69,6 +68,7 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  padding-bottom: 3px;
 }
 
 nav a.active {
@@ -91,23 +91,22 @@ footer {
 
 /* MAIN */
 main {
-  padding-top: 90px;
+  padding-top: 70px;
   padding-bottom: 34px;
-  height: calc(100vh - 124px); /* header + footer */
 }
 
 /* SECTIONS */
 section {
   display: none;
-  height: 100%;
   width: 100%;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  overflow: hidden; /* Fara scroll */
   text-align: center;
+  overflow-y: auto;
+  max-height: calc(100vh - 104px);
 }
 
 section.active {
@@ -116,15 +115,21 @@ section.active {
 
 /* ACASA */
 #acasa {
-  background: url('fundal-acasa.png') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('fundal-acasa.png') no-repeat center center;
+  background-size: cover;
   color: #fff;
+  text-align: center;
 }
 
 #acasa .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 1000px;
+  max-width: 900px;
   margin-top: 20px;
 }
 
@@ -135,10 +140,6 @@ section.active {
   border-radius: 14px;
   font-size: 1rem;
   font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 h2.white-title {
@@ -162,130 +163,81 @@ h2.white-title {
 #despre {
   background: #fff;
   color: #222;
-  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-align: left;
-  padding: 0 20px;
-}
-
-.despre-container {
-  max-width: 900px;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  background: #fff;
-}
-
-.despre-container h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
   text-align: center;
-  color: #0d2b5f;
+  padding: 40px 20px;
 }
 
-.despre-container p {
-  margin-bottom: 20px;
+#despre p {
+  max-width: 900px;
+  margin: 15px auto;
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 /* SERVICII */
 #servicii {
   background: #fff;
   color: #222;
-  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
-}
-
-.services-container {
-  max-width: 1200px;
-  width: 100%;
   padding: 40px 20px;
-}
-
-.services-container h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #0d2b5f;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  max-width: 1100px;
+  margin-top: 20px;
 }
 
 .service-card {
   background: rgba(13, 43, 95, 0.8);
   color: #fff;
-  padding: 22px;
-  border-radius: 14px;
-  font-size: 1.1rem;
+  padding: 22px 15px;
+  border-radius: 16px;
   font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 /* CONTACT */
 #contact {
   background: #fff;
   color: #222;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: left;
-  padding: 20px;
-}
-
-.contact-container {
-  max-width: 900px;
-  width: 100%;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  background: #fff;
-}
-
-.contact-container h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
   text-align: center;
-  color: #0d2b5f;
+  padding: 40px 20px;
 }
 
-.contact-container p {
-  margin-bottom: 20px;
-  line-height: 1.6;
-  font-size: 1.1rem;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  width: 100%;
+#contact p {
+  max-width: 900px;
+  margin: 10px auto;
+  line-height: 1.5;
   font-size: 1rem;
 }
 
-.contact-form button {
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+form button {
   background: #0d2b5f;
   color: #fff;
   border: none;
@@ -293,7 +245,6 @@ h2.white-title {
   border-radius: 30px;
   font-weight: 700;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 /* RESPONSIVE */
@@ -302,14 +253,25 @@ h2.white-title {
     grid-template-columns: 1fr;
   }
 }
+
 @media(max-width:600px){
   header{
-    flex-direction:column;
-    gap:10px;
+    flex-direction: column;
+    gap: 10px;
   }
   nav ul{
-    flex-direction:column;
-    gap:10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  h2.white-title {
+    font-size: 1.6rem;
+  }
+  .card, .service-card {
+    font-size: 0.95rem;
+    padding: 16px;
+  }
+  .button {
+    padding: 12px 24px;
   }
 }
 </style>
@@ -334,73 +296,58 @@ h2.white-title {
 
 <main>
 
-<!-- ACASA -->
 <section id="acasa" class="active">
   <h2 class="white-title">De ce noi?</h2>
   <div class="cards">
     <div class="card">Profesionalism desăvârșit – fiecare serviciu este executat cu atenție la detalii și standarde înalte.</div>
-    <div class="card">Prezență constantă și suport pentru clienți – suntem acolo când ai nevoie, asigurând intervenții rapide și eficiente.</div>
-    <div class="card">Servicii personalizate – ne adaptăm la nevoile fiecărui client, pentru rezultate perfecte.</div>
-    <div class="card">Grijă pentru oameni și mediu – folosim produse profesionale, eco-friendly, și punem pe primul loc siguranța, confortul și satisfacția clientului.</div>
-    <div class="card">Rapiditate și eficiență – lucrăm metodic și prompt, astfel încât activitatea ta să nu fie afectată.</div>
+    <div class="card">Prezență constantă și suport pentru clienți – intervenții rapide și eficiente.</div>
+    <div class="card">Servicii personalizate – adaptate la nevoile fiecărui client.</div>
+    <div class="card">Grijă pentru oameni și mediu – folosim produse eco-friendly.</div>
+    <div class="card">Rapiditate și eficiență – activitatea ta nu este afectată.</div>
   </div>
   <p style="margin-top:25px;font-style:italic;">Novis Concept – Alături de tine, la fiecare pas.</p>
   <button class="button" onclick="showSection('contact')">Programează evaluare</button>
 </section>
 
-<!-- DESPRE NOI -->
 <section id="despre">
-  <div class="despre-container">
-    <h2>Despre Noi</h2>
-    <p>La Novis Concept, oferim soluții profesionale de curățenie și întreținere, adaptate nevoilor companiilor și locuințelor. Ne ocupăm de birouri și spații comerciale, spații industriale, curățenie post-construcții, spălări mecanizate de pardoseli, mochete și tapițerii, precum și de curățarea suprafețelor vitrate, inclusiv prin alpinism utilitar.</p>
-
-    <p>Oferim, de asemenea, servicii complete pentru locuințe, transformând casa fiecărui client într-un spațiu curat, confortabil și primitor. Ne ocupăm și de întreținerea spațiilor verzi și lucrări de peisagistică, precum și de servicii de deszăpezire, pentru a asigura un mediu sigur și bine întreținut în orice sezon.</p>
-
-    <p>Suntem dedicați construirii de relații bazate pe încredere și profesionalism, oferind mereu soluții personalizate care răspund exact nevoilor fiecărui client.</p>
-  </div>
+  <h2>DESPRE NOI</h2>
+  <p>La Novis Concept, oferim soluții profesionale de curățenie și întreținere, adaptate nevoilor companiilor și locuințelor. Ne ocupăm de birouri și spații comerciale, spații industriale, curățenie post-construcții, spălări mecanizate de pardoseli, mochete și tapițerii, precum și de curățarea suprafețelor vitrate, inclusiv prin alpinism utilitar.</p>
+  <p>Oferim, de asemenea, servicii complete pentru locuințe, transformând casa fiecărui client într-un spațiu curat, confortabil și primitor. Ne ocupăm și de întreținerea spațiilor verzi și lucrări de peisagistică, precum și de servicii de deszăpezire, pentru a asigura un mediu sigur și bine întreținut în orice sezon.</p>
+  <p>Suntem dedicați construirii de relații bazate pe încredere și profesionalism, oferind mereu soluții personalizate care răspund exact nevoilor fiecărui client.</p>
 </section>
 
-<!-- SERVICII -->
 <section id="servicii">
-  <div class="services-container">
-    <h2>Servicii</h2>
-    <div class="services-grid">
-      <div class="service-card">Curățenie Birouri</div>
-      <div class="service-card">Curățenie Spații Comerciale</div>
-      <div class="service-card">Curățenie Post-Construcții</div>
-      <div class="service-card">Curățenie Depozite</div>
-      <div class="service-card">Curățenie la Domiciliu</div>
-      <div class="service-card">Spălări mecanizate Pardoseli</div>
-      <div class="service-card">Spălări Mochete</div>
-      <div class="service-card">Spălări Tapițerii</div>
-      <div class="service-card">Spălări Suprafețe Vitrate (inclusiv cu Alpinism Utilitar)</div>
-      <div class="service-card">Întreținere Spații Verzi</div>
-      <div class="service-card">Lucrări Peisagistică</div>
-      <div class="service-card">Servicii Deszăpezire</div>
-    </div>
+  <h2>SERVICII</h2>
+  <div class="services-grid">
+    <div class="service-card">Curățenie Birouri</div>
+    <div class="service-card">Curățenie Spații Comerciale</div>
+    <div class="service-card">Curățenie Post-Construcții</div>
+    <div class="service-card">Curățenie Depozite</div>
+    <div class="service-card">Curățenie la Domiciliu</div>
+    <div class="service-card">Spălări mecanizate Pardoseli</div>
+    <div class="service-card">Spălări Mochete</div>
+    <div class="service-card">Spălări Tapițerii</div>
+    <div class="service-card">Spălări Suprafețe Vitrate (inclusiv cu Alpinism Utilitar)</div>
+    <div class="service-card">Întreținere Spații Verzi</div>
+    <div class="service-card">Lucrări Peisagistică</div>
+    <div class="service-card">Servicii Deszăpezire</div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="contact-container">
-    <h2>Contact</h2>
-    <p>La Novis Concept, suntem mereu gata să răspundem nevoilor tale și să găsim soluții personalizate pentru curățenie și întreținere, indiferent de dimensiunea sau tipul spațiului. Echipa noastră este rapidă, profesionistă și dedicată, astfel încât să te poți bucura de un mediu curat și ordonat fără griji.</p>
-
-    <p><strong>Telefon:</strong> +40 773 375 884<br>
-       <strong>Email:</strong> ofiice@novisconcept.ro<br>
-       <strong>Website:</strong> www.novisconcept.ro<br>
-       <strong>Adresă:</strong> Str. Banul Udrea, nr.8, sector 3, București</p>
-
-    <p>Suntem aici pentru tine! Programează o evaluare gratuită sau contactează-ne pentru o ofertă personalizată și descoperă cum putem transforma spațiul tău într-un loc curat, confortabil și primitor.</p>
-
-    <form class="contact-form">
-      <input type="text" placeholder="Nume" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Mesaj" required></textarea>
-      <button type="submit">Trimite</button>
-    </form>
-  </div>
+  <h2>DATE CONTACT</h2>
+  <p>La Novis Concept, suntem mereu gata să răspundem nevoilor tale și să găsim soluții personalizate pentru curățenie și întreținere, indiferent de dimensiunea sau tipul spațiului. Echipa noastră este rapidă, profesionistă și dedicată, astfel încât să te poți bucura de un mediu curat și ordonat fără griji.</p>
+  <p><strong>Telefon:</strong> +40 773 375 884<br>
+     <strong>Email:</strong> ofiice@novisconcept.ro<br>
+     <strong>Website:</strong> www.novisconcept.ro<br>
+     <strong>Adresă:</strong> Str. Banul Udrea, nr.8, sector 3, București</p>
+  <p>Suntem aici pentru tine! Programează o evaluare gratuită sau contactează-ne pentru o ofertă personalizată și descoperă cum putem transforma spațiul tău într-un loc curat, confortabil și primitor.</p>
+  <form>
+    <input placeholder="Nume" required>
+    <input placeholder="Email" required>
+    <textarea placeholder="Mesaj"></textarea>
+    <button>Trimite</button>
+  </form>
 </section>
 
 </main>
@@ -409,11 +356,12 @@ h2.white-title {
 
 <script>
 function showSection(id){
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 
-  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('nav-'+id).classList.add('active');
+  document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+  const navLink = document.getElementById('nav-'+id);
+  if(navLink) navLink.classList.add('active');
 }
 </script>
 
