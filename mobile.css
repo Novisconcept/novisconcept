@@ -1,49 +1,167 @@
 
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-    position: relative; /* nu mai e fixed */
+/* ================= MOBILE OPTIMIZED FINAL ================= */
+@media (max-width: 900px) {
+
+  /* BODY & HTML */
+  html, body {
+    height: auto !important;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   main {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: auto; /* nu mai blochează scroll */
+    height: auto;
+    padding-top: 120px;
+    padding-bottom: 60px;
   }
 
+  /* HEADER */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 15px;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+  header img {
+    height: 45px;
+    max-width: 90%;
+  }
+
+  .brand h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .brand span {
+    font-size: 0.8rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+
+  nav a.active,
+  nav a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+  }
+
+  /* SECTIONS & CARDS */
   section {
     min-height: auto;
-    padding: 20px 15px;
+    padding: 15px 10px;
   }
 
-  footer {
-    position: relative; /* nu mai e fixed */
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    word-break: break-word;
   }
 
-  html, body {
-    height: auto;
-    overflow: auto; /* permite scroll */
+  section p {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
   }
 
   .cards {
-    grid-template-columns: 1fr; /* fiecare card pe rând */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+    max-width: 100%;
+    margin-top: 15px;
+  }
+
+  .card {
+    font-size: 0.85rem;
+    padding: 16px;
   }
 
   .services-grid {
-    grid-template-columns: 1fr; /* fiecare serviciu pe rând */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+    max-width: 100%;
   }
 
-  #acasa h2 {
-    font-size: 1.5rem; /* mai mic pentru mobil */
+  .service-card {
+    font-size: 0.9rem;
+    padding: 16px;
   }
 
-  .card, .service-card {
-    font-size: 0.9rem; /* text mai mic */
-    padding: 15px; /* mai puțin spațiu */
-  }
-
+  /* BUTTONS */
   .button {
-    padding: 12px 24px; /* mai mică */
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* FORM */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+    margin: 15px auto 0;
+    padding: 0 5px;
+  }
+
+  input, textarea {
+    font-size: 0.85rem;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  form button {
+    font-size: 0.9rem;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* FOOTER */
+  footer {
+    height: auto;
+    padding: 8px 5px;
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* BACKGROUND & OTHER ELEMENTS */
+  #acasa {
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+
+  /* FIX FOR SMALL DEVICES */
+  * {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
 }
+
