@@ -38,6 +38,7 @@ header {
 
 header img {
   height: 65px; /* logo mai mare */
+  cursor: pointer;
 }
 
 .brand {
@@ -107,7 +108,9 @@ section.active {
 
 #acasa h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
 }
 
 .cards {
@@ -118,11 +121,13 @@ section.active {
 }
 
 .card {
-  background: rgba(13,43,95,0.8);
-  color: #fff;
+  background: rgba(255,255,255,0.9); /* alb semi-transparent */
+  color: #0d2b5f;
   padding: 20px;
   border-radius: 12px;
   font-size: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 /* BUTTON */
@@ -244,7 +249,7 @@ footer {
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
+  <img src="logo.png" alt="Logo" onclick="showSection('acasa')">
   <div class="brand" onclick="showSection('acasa')">
     <h1>NOVIS CONCEPT</h1>
     <span>Cleaning Services</span>
@@ -292,9 +297,9 @@ footer {
     <div class="service-card">Spălări Mochete</div>
     <div class="service-card">Spălări Tapițerii</div>
     <div class="service-card">Spălări Suprafețe Vitrate (inclusiv cu Alpinism Utilitar)</div>
-    <div class="service-card">Intretinere Spatii Verzi</div>
-    <div class="service-card">Lucrari Peisagistica</div>
-    <div class="service-card">Servicii Deszapezire</div>
+    <div class="service-card">Întreținere Spații Verzi</div>
+    <div class="service-card">Lucrări Peisagistică</div>
+    <div class="service-card">Servicii Deszăpezire</div>
   </div>
 </section>
 
