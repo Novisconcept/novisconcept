@@ -12,155 +12,145 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Montserrat', sans-serif;
+  font-family:'Montserrat',sans-serif;
 }
 
-html, body{
-  height:100%;
-  overflow:hidden; /* ZERO SCROLL */
+body{
+  overflow:hidden;
+  color:#222;
+  background:#fff;
 }
 
 /* HEADER */
 header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
   height:90px;
   background:#0d2b5f;
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 30px;
+  padding:0 40px;
+  z-index:1000;
 }
 
 header img{
   height:70px;
 }
 
-.brand{
-  text-align:center;
-  cursor:pointer;
-}
-
-.brand h1{
-  font-size:1.8rem;
-  font-weight:700;
-}
-
-.brand span{
-  font-size:0.85rem;
-}
-
 nav ul{
   list-style:none;
   display:flex;
-  gap:25px;
+  gap:28px;
 }
 
 nav a{
   color:#fff;
   text-decoration:none;
-  font-weight:500;
-  position:relative;
+  font-weight:600;
   cursor:pointer;
+  position:relative;
 }
 
 nav a.active::after{
   content:'';
   position:absolute;
-  bottom:-6px;
   left:0;
+  bottom:-6px;
   width:100%;
-  height:2px;
+  height:3px;
   background:#ffcc00;
-}
-
-/* FOOTER */
-footer{
-  height:34px;
-  background:#0d2b5f;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0.85rem;
 }
 
 /* MAIN */
 main{
-  height:calc(100vh - 124px);
+  height:100vh;
+  padding-top:90px;
 }
 
 /* SECTIONS */
 section{
   display:none;
-  height:100%;
-  padding:30px;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+  height:calc(100vh - 90px);
+  padding:40px;
 }
 
 section.active{
   display:flex;
   flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-/* ========== ACASA ========== */
+/* ACASA */
 #acasa{
-  background:url('fundal-acasa.png') center/cover no-repeat;
+  background:url('./fundal-acasa.png') center center / cover no-repeat;
   color:#fff;
+  position:relative;
+}
+
+#acasa::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+}
+
+#acasa > *{
+  position:relative;
+  z-index:1;
 }
 
 #acasa h2{
-  font-size:2.4rem;
-  margin-bottom:20px;
+  font-size:2.6rem;
+  margin-bottom:30px;
 }
 
 .cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
-  max-width:900px;
+  max-width:1000px;
 }
 
 .card{
-  background:rgba(255,255,255,0.9);
-  color:#0d2b5f;
-  padding:18px;
-  border-radius:12px;
+  background:rgba(255,255,255,0.95);
+  color:#222;
+  padding:20px;
+  border-radius:14px;
   font-weight:500;
 }
 
-#acasa p{
-  margin-top:30px;
+.slogan{
+  margin-top:35px;
   font-style:italic;
-  font-size:1.05rem;
 }
 
 .button{
-  margin-top:20px;
-  padding:14px 32px;
-  border-radius:30px;
+  margin-top:18px;
+  padding:14px 34px;
   border:none;
-  background:linear-gradient(135deg,#ffcc00,#ffdd33);
+  border-radius:30px;
+  background:#ffcc00;
   color:#0d2b5f;
   font-weight:700;
   cursor:pointer;
 }
 
-/* ========== PAGINI ALBE ========== */
-.page{
-  background:#fff;
+/* TITLES */
+h2{
   color:#0d2b5f;
+  margin-bottom:25px;
+  font-size:2.2rem;
 }
 
-.page h2{
-  font-size:2rem;
-  margin-bottom:20px;
-}
-
+/* CONTENT */
 .content{
   max-width:900px;
-  text-align:left;
   line-height:1.6;
 }
 
@@ -168,29 +158,27 @@ section.active{
 .services{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:20px;
+  gap:20px;
+  max-width:900px;
 }
 
 .service{
-  background:#f4f6f8;
-  padding:15px;
-  border-radius:10px;
-  text-align:center;
-  font-weight:500;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
 }
 
 /* CONTACT */
 form{
-  margin-top:20px;
+  margin-top:25px;
   display:flex;
   flex-direction:column;
-  gap:12px;
-  max-width:400px;
+  gap:14px;
+  width:420px;
 }
 
 input, textarea{
-  padding:10px;
+  padding:12px;
   border-radius:8px;
   border:1px solid #ccc;
 }
@@ -199,7 +187,7 @@ form button{
   background:#0d2b5f;
   color:#fff;
   border:none;
-  padding:12px;
+  padding:14px;
   border-radius:30px;
   font-weight:700;
 }
@@ -209,17 +197,13 @@ form button{
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
-  <div class="brand" onclick="showSection('acasa')">
-    <h1>NOVIS CONCEPT</h1>
-    <span>Cleaning Services</span>
-  </div>
+  <img src="logo.png" alt="Novis Concept">
   <nav>
     <ul>
-      <li><a onclick="showSection('acasa')" class="active">Acasă</a></li>
-      <li><a onclick="showSection('despre')">Despre noi</a></li>
-      <li><a onclick="showSection('servicii')">Servicii</a></li>
-      <li><a onclick="showSection('contact')">Contact</a></li>
+      <li><a class="active" onclick="show('acasa',this)">Acasă</a></li>
+      <li><a onclick="show('despre',this)">Despre noi</a></li>
+      <li><a onclick="show('servicii',this)">Servicii</a></li>
+      <li><a onclick="show('contact',this)">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -230,51 +214,49 @@ form button{
   <h2>De ce noi?</h2>
   <div class="cards">
     <div class="card">Profesionalism desăvârșit</div>
-    <div class="card">Suport constant pentru clienți</div>
+    <div class="card">Prezență constantă și suport pentru clienți</div>
     <div class="card">Servicii personalizate</div>
     <div class="card">Grijă pentru oameni și mediu</div>
     <div class="card">Rapiditate și eficiență</div>
+    <div class="card">Relații bazate pe încredere</div>
   </div>
-  <p>Novis Concept – Alături de tine, la fiecare pas.</p>
-  <button class="button" onclick="showSection('contact')">Programează evaluare</button>
+
+  <div class="slogan">Novis Concept – Alături de tine, la fiecare pas.</div>
+  <button class="button" onclick="show('contact',document.querySelectorAll('nav a')[3])">
+    Programează evaluare
+  </button>
 </section>
 
-<section id="despre" class="page">
+<section id="despre">
   <h2>Despre noi</h2>
   <div class="content">
     La Novis Concept, oferim soluții profesionale de curățenie și întreținere, adaptate nevoilor companiilor și locuințelor. Ne ocupăm de birouri și spații comerciale, spații industriale, curățenie post-construcții, spălări mecanizate de pardoseli, mochete și tapițerii, precum și de curățarea suprafețelor vitrate, inclusiv prin alpinism utilitar.<br><br>
-    Oferim servicii complete pentru locuințe, întreținerea spațiilor verzi, peisagistică și deszăpezire, asigurând un mediu sigur și bine întreținut în orice sezon.<br><br>
-    Suntem dedicați relațiilor bazate pe încredere și profesionalism.
+    Oferim, de asemenea, servicii complete pentru locuințe, întreținerea spațiilor verzi, lucrări de peisagistică și servicii de deszăpezire.
   </div>
 </section>
 
-<section id="servicii" class="page">
+<section id="servicii">
   <h2>Servicii</h2>
   <div class="services">
-    <div class="service">Curățenie Birouri</div>
-    <div class="service">Spații Comerciale</div>
-    <div class="service">Post-Construcții</div>
-    <div class="service">Depozite</div>
-    <div class="service">La Domiciliu</div>
-    <div class="service">Pardoseli</div>
-    <div class="service">Mochete</div>
-    <div class="service">Tapițerii</div>
-    <div class="service">Alpinism Utilitar</div>
-    <div class="service">Spații Verzi</div>
-    <div class="service">Peisagistică</div>
-    <div class="service">Deszăpezire</div>
+    <div class="service">Curățenie birouri și spații comerciale</div>
+    <div class="service">Curățenie industrială și post-construcții</div>
+    <div class="service">Spălări pardoseli, mochete și tapițerii</div>
+    <div class="service">Curățare suprafețe vitrate</div>
+    <div class="service">Alpinism utilitar</div>
+    <div class="service">Spații verzi, peisagistică, deszăpezire</div>
   </div>
 </section>
 
-<section id="contact" class="page">
+<section id="contact">
   <h2>Contact</h2>
   <div class="content">
-    La Novis Concept, suntem mereu gata să răspundem nevoilor tale și să găsim soluții personalizate.<br><br>
+    La Novis Concept, suntem mereu gata să răspundem nevoilor tale și să găsim soluții personalizate pentru curățenie și întreținere.<br><br>
     <strong>Telefon:</strong> +40 773 375 884<br>
     <strong>Email:</strong> ofiice@novisconcept.ro<br>
     <strong>Website:</strong> www.novisconcept.ro<br>
     <strong>Adresă:</strong> Str. Banul Udrea, nr.8, sector 3, București
   </div>
+
   <form>
     <input placeholder="Nume" required>
     <input placeholder="Email" required>
@@ -285,15 +267,13 @@ form button{
 
 </main>
 
-<footer>© 2026 Novis Concept</footer>
-
 <script>
-function showSection(id){
+function show(id,el){
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  event.target.classList.add('active');
+  el.classList.add('active');
 }
 </script>
 
