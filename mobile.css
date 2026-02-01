@@ -1,15 +1,36 @@
-/* mobile.css */
-@media only screen and (max-width: 768px) {
-  header, .navbar {
-    position: relative !important; /* să nu mai stea peste conținut */
-    z-index: 10; /* să fie deasupra, dar nu peste text */
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+  body, html {
+    overflow: auto; /* permite scroll-ul pe mobil */
   }
 
-  body {
-    padding-top: 60px; /* spațiu deasupra ca să nu fie blocat textul */
+  header {
+    position: relative; /* header nu mai blochează vizualul */
+    flex-direction: column;
+    gap: 10px;
   }
 
-  nav a {
-    font-size: 16px; /* ajustează dimensiune linkuri */
+  main {
+    padding-top: 20px; /* mai mic ca să nu lase spațiu mare sus */
+    padding-bottom: 20px;
+    height: auto; /* permite secțiunilor să crească */
+  }
+
+  section {
+    min-height: auto; /* se ajustează la conținut */
+    padding: 20px 15px;
+  }
+
+  .cards, .services-grid {
+    grid-template-columns: 1fr; /* toate cardurile pe un singur rând */
+  }
+
+  footer {
+    position: relative; /* nu mai fixează jos */
+  }
+
+  .button {
+    width: 100%; /* buton mare pe mobil */
+    text-align: center;
   }
 }
