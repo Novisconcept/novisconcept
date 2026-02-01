@@ -6,214 +6,233 @@
 <title>Novis Concept</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Montserrat', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-body{
-  background:#fff;
-  color:#222;
-  overflow-x:hidden;
+body {
+  background: #fff;
+  color: #222;
+  overflow: hidden; /* fără scroll */
 }
 
 /* HEADER */
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:#0d2b5f;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 30px;
-  z-index:1000;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0d2b5f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 30px;
+  z-index: 1000;
 }
 
-header img{
-  height:60px; /* logo mai vizibil */
+header img {
+  height: 65px; /* logo mai mare */
 }
 
-.brand{
-  text-align:center;
-  cursor:pointer;
+.brand {
+  text-align: center;
+  cursor: pointer;
 }
 
-.brand h1{
-  font-size:1.6rem;
-  font-weight:700;
-  color:#fff;
+.brand h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
 }
 
-.brand span{
-  font-size:0.85rem;
-  color:#fff;
+.brand span {
+  font-size: 0.85rem;
+  color: #fff;
 }
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:22px;
+/* NAV */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
 }
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:500;
-  transition:0.3s;
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-nav a.active, nav a:hover{
-  text-decoration:underline;
-  color:#ffcc00;
+nav a.active {
+  border-bottom: 2px solid #ffcc00;
 }
 
 /* FOOTER */
-footer{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  height:34px;
-  background:#0d2b5f;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0.85rem;
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 34px;
+  background: #0d2b5f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
 }
 
 /* MAIN */
-main{
-  padding-top:110px;
-  padding-bottom:34px;
+main {
+  padding-top: 110px;
+  padding-bottom: 34px;
 }
 
 /* SECTIONS */
-section{
-  display:none;
-  min-height:calc(100vh - 144px);
-  padding:30px 20px;
-  text-align:center;
+section {
+  display: none;
+  min-height: calc(100vh - 144px);
+  padding: 30px 20px;
+  text-align: center;
 }
 
-section.active{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+section.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ACASA */
-#acasa{
-  background:url('fundal-acasa.png') no-repeat center center/cover;
-  color:#fff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:50px 20px;
+#acasa {
+  background: url('fundal-acasa.png') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+}
+
+#acasa .cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(13, 43, 95, 0.8);
+  color: #fff;
+  padding: 22px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 /* DE CE NOI */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-  gap:20px;
-  max-width:1000px;
-  margin-top:30px;
-}
-
-.card{
-  background:#0d2b5f;
-  color:#fff;
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
-  text-align:center;
-}
-
-/* TITLES */
-h2{
-  color:#fff;
-  font-size:2rem;
-  margin-bottom:15px;
+h2.white-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
 /* BUTTON */
-.button{
-  margin-top:40px;
-  padding:14px 32px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(135deg,#ffcc00,#ffdd33);
-  color:#0d2b5f;
-  font-weight:700;
-  cursor:pointer;
+.button {
+  margin-top: 20px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ffcc00, #ffdd33);
+  color: #0d2b5f;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* SECTIUNEA DESPRE */
+#despre {
+  background: #fff;
+  color: #222;
+  text-align: center;
+  padding: 30px;
+}
+
+#despre p {
+  max-width: 900px;
+  margin: 15px auto;
+  line-height: 1.5;
 }
 
 /* SERVICII */
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  max-width:1100px;
-  justify-items:center;
+#servicii {
+  background: #fff;
+  color: #222;
+  text-align: center;
+  padding: 30px;
 }
 
-.service-card{
-  background:#0d2b5f;
-  color:#fff;
-  padding:20px;
-  border-radius:16px;
-  width:100%;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  text-align:center;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #0d2b5f;
+  color: #fff;
+  padding: 22px 15px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-weight: 500;
 }
 
 /* CONTACT */
-form{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  max-width:500px;
-  width:100%;
-  margin-top:20px;
+#contact {
+  background: #fff;
+  color: #222;
+  text-align: center;
+  padding: 30px;
 }
 
-input, textarea{
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
+#contact p {
+  max-width: 900px;
+  margin: 15px auto;
+  line-height: 1.5;
 }
 
-form button{
-  background:#0d2b5f;
-  color:#fff;
-  border:none;
-  padding:14px;
-  border-radius:30px;
-  font-weight:700;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  width: 100%;
+  margin: 20px auto 0;
 }
 
-/* SECTIUNI DESPRE/CONTACT/SERVICII */
-section:not(#acasa){
-  background:#fff;
-  color:#222;
-  min-height:auto;
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: #0d2b5f;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-weight: 700;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .services-grid{
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  .services-grid {
+    grid-template-columns: 1fr;
   }
-  .cards{
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  .cards {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -229,7 +248,6 @@ section:not(#acasa){
 }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -240,10 +258,10 @@ section:not(#acasa){
   </div>
   <nav>
     <ul>
-      <li><a class="active" onclick="showSection('acasa')">Acasă</a></li>
-      <li><a onclick="showSection('despre')">Despre Noi</a></li>
-      <li><a onclick="showSection('servicii')">Servicii</a></li>
-      <li><a onclick="showSection('contact')">Contact</a></li>
+      <li><a id="nav-acasa" onclick="showSection('acasa')">Acasă</a></li>
+      <li><a id="nav-despre" onclick="showSection('despre')">Despre Noi</a></li>
+      <li><a id="nav-servicii" onclick="showSection('servicii')">Servicii</a></li>
+      <li><a id="nav-contact" onclick="showSection('contact')">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -251,7 +269,7 @@ section:not(#acasa){
 <main>
 
 <section id="acasa" class="active">
-  <h2>De ce noi?</h2>
+  <h2 class="white-title">De ce noi?</h2>
   <div class="cards">
     <div class="card">Profesionalism și atenție la detalii</div>
     <div class="card">Servicii personalizate</div>
@@ -277,14 +295,14 @@ section:not(#acasa){
     <div class="service-card">Curățenie Spații Comerciale</div>
     <div class="service-card">Curățenie Post-Construcții</div>
     <div class="service-card">Curățenie Depozite</div>
-    <div class="service-card">Curatenie la Domiciliu</div>
+    <div class="service-card">Curățenie la Domiciliu</div>
     <div class="service-card">Spălări mecanizate Pardoseli</div>
     <div class="service-card">Spălări Mochete</div>
     <div class="service-card">Spălări Tapițerii</div>
     <div class="service-card">Spălări Suprafețe Vitrate (inclusiv cu Alpinism Utilitar)</div>
-    <div class="service-card">Intretinere Spatii Verzi</div>
-    <div class="service-card">Lucrari Peisagistica</div>
-    <div class="service-card">Servicii Deszapezire</div>
+    <div class="service-card">Întreținere Spații Verzi</div>
+    <div class="service-card">Lucrări Peisagistică</div>
+    <div class="service-card">Servicii Deszăpezire</div>
   </div>
 </section>
 
@@ -310,14 +328,12 @@ section:not(#acasa){
 
 <script>
 function showSection(id){
-  document.querySelectorAll('section').forEach(s=>{
-    s.classList.remove('active');
-  });
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  // active link
+
+  // highlight nav
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  document.querySelector(`nav a[onclick="showSection('${id}')"]`).classList.add('active');
-  window.scrollTo(0,0);
+  document.getElementById('nav-'+id).classList.add('active');
 }
 </script>
 
