@@ -13,10 +13,12 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+/* BODY */
 body {
   background: #fff;
   color: #222;
-  overflow: hidden; /* fără scroll */
+  overflow: hidden; /* Fara scroll */
+  height: 100vh;
 }
 
 /* HEADER */
@@ -32,10 +34,11 @@ header {
   justify-content: space-between;
   padding: 12px 30px;
   z-index: 1000;
+  height: 70px;
 }
 
 header img {
-  height: 65px; /* logo mai mare */
+  height: 65px;
 }
 
 .brand {
@@ -87,23 +90,27 @@ footer {
 
 /* MAIN */
 main {
-  padding-top: 110px;
+  padding-top: 70px;
   padding-bottom: 34px;
+  height: calc(100vh - 104px); /* header + footer */
 }
 
 /* SECTIONS */
 section {
   display: none;
-  min-height: calc(100vh - 144px);
-  padding: 30px 20px;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Fara scroll */
   text-align: center;
 }
 
 section.active {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ACASA */
@@ -130,14 +137,12 @@ section.active {
   font-weight: 500;
 }
 
-/* DE CE NOI */
 h2.white-title {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
 }
 
-/* BUTTON */
 .button {
   margin-top: 20px;
   padding: 14px 32px;
@@ -149,34 +154,30 @@ h2.white-title {
   cursor: pointer;
 }
 
-/* SECTIUNEA DESPRE */
-#despre {
+/* DESPRE, SERVICII, CONTACT */
+#despre, #servicii, #contact {
   background: #fff;
   color: #222;
-  text-align: center;
-  padding: 30px;
+  min-height: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#despre p {
+#despre p, #contact p {
   max-width: 900px;
-  margin: 15px auto;
+  margin: 10px auto;
   line-height: 1.5;
 }
 
 /* SERVICII */
-#servicii {
-  background: #fff;
-  color: #222;
-  text-align: center;
-  padding: 30px;
-}
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }
 
 .service-card {
@@ -184,24 +185,10 @@ h2.white-title {
   color: #fff;
   padding: 22px 15px;
   border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   font-weight: 500;
 }
 
-/* CONTACT */
-#contact {
-  background: #fff;
-  color: #222;
-  text-align: center;
-  padding: 30px;
-}
-
-#contact p {
-  max-width: 900px;
-  margin: 15px auto;
-  line-height: 1.5;
-}
-
+/* CONTACT FORM */
 form {
   display: flex;
   flex-direction: column;
@@ -228,14 +215,10 @@ form button {
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  .cards {
+  .services-grid, .cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media(max-width:600px){
   header{
     flex-direction:column;
@@ -267,7 +250,6 @@ form button {
 </header>
 
 <main>
-
 <section id="acasa" class="active">
   <h2 class="white-title">De ce noi?</h2>
   <div class="cards">
@@ -331,7 +313,6 @@ function showSection(id){
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 
-  // highlight nav
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
   document.getElementById('nav-'+id).classList.add('active');
 }
