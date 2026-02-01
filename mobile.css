@@ -1,36 +1,40 @@
-/* MOBILE FIXES */
-@media (max-width: 768px) {
+/* ==========================
+   FIX pentru mobil
+   ========================== */
+@media(max-width:600px){
   body, html {
-    overflow: auto; /* permite scroll-ul pe mobil */
+    height: auto;      /* permite scroll */
+    overflow: auto;    /* permite scroll */
   }
 
   header {
-    position: relative; /* header nu mai blochează vizualul */
+    position: relative; /* header nu mai acoperă conținutul */
     flex-direction: column;
     gap: 10px;
+    padding: 12px 20px;
   }
 
   main {
-    padding-top: 20px; /* mai mic ca să nu lase spațiu mare sus */
+    padding-top: 20px;   /* lasă spațiu pentru header */
     padding-bottom: 20px;
-    height: auto; /* permite secțiunilor să crească */
+    height: auto;
   }
 
   section {
-    min-height: auto; /* se ajustează la conținut */
+    min-height: auto;
     padding: 20px 15px;
   }
 
-  .cards, .services-grid {
-    grid-template-columns: 1fr; /* toate cardurile pe un singur rând */
+  footer {
+    position: relative; /* footer nu mai e fix */
   }
 
-  footer {
-    position: relative; /* nu mai fixează jos */
+  .services-grid, .cards {
+    grid-template-columns: 1fr; /* se adaptează la ecran mic */
   }
 
   .button {
-    width: 100%; /* buton mare pe mobil */
+    width: 100%;
     text-align: center;
   }
 }
